@@ -13,10 +13,12 @@ RUN gradle build --no-daemon
 # Use the official OpenJDK image to create a lean production image
 FROM openjdk:17-slim
 
-
 # Copy the built jars from the previous stage
-COPY --from=build /home/gradle/src/build/libs/cloud-app-0.0.1-SNAPSHOT.jar /app/application.jar
-
+COPY --from=build /home/gradle/src/build/libs/
+cloud-app-0.0.1-SNAPSHOT.jar /app/application.jar
 
 # Run the application
 CMD ["java", "-jar", "/app/application.jar"]
+
+
+
