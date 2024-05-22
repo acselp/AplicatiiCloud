@@ -1,17 +1,18 @@
-apiVersion: v1
-kind: Pod
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
 metadata:
-  name: title
-  labels:
-    role: title
+  name: ac-1-hpa
 spec:
-  containers:
-    - name: title
-      image: nginx
-      imagePullPolicy: IfNotPresent
-      ports:
-        - name: title
-          containerPort: 80
-          protocol: TCP
-  restartPolicy: Always
-  
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ac-1-deployment
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
