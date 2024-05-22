@@ -1,26 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: title
-  labels:
-    app: title
+  name: arhitect-cloud-project
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: title
+      app: arhitect-cloud-project
   template:
     metadata:
-      name: title
       labels:
-        app: title
+        app: arhitect-cloud-project
     spec:
       containers:
-        - name: title
-          image: nginx
-          imagePullPolicy: IfNotPresent
+        - name: arhitect-cloud-project
+          image: scofieldtm/cloudapp1:latest
           ports:
-            - containerPort: 80
-              protocol: TCP
-      restartPolicy: Always
-      
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "100m"
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
