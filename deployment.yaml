@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: cloud-app
-          image: appcloud231/cloud-app:latest
+       #   image: appcloud231/cloud-app:latest   # Vera
+          image: scofieldtm/cloudapp1:latest   #Evgheniy
           ports:
             - containerPort: 8080
           resources:
