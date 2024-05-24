@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: arhitect-cloud-project
 spec:
-  replicas: 1
+  replicas: 1  # maybe 3?
   selector:
     matchLabels:
       app: arhitect-cloud-project
