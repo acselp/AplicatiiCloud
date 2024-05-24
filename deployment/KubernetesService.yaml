@@ -7,7 +7,7 @@ spec:
   selector:
     app: arhitect-cloud-project
   ports:
-    - port: 5050
+    - port: 80
       targetPort: 8080
 
 #apiVersion: v1
