@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: main-app
+spec:
+  containers:
+  - name: main-app-container01
+    image: appcloud231/cloud-app
+    ports:
+    - containerPort: 8092
