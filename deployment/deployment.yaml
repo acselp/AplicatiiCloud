@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: cloud-app
-          image: appcloud231/cloud-app:latest
+          image: scofieldtm/cloudapp1:latest
           ports:
             - containerPort: 8080
           resources:
